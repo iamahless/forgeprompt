@@ -6,7 +6,7 @@ Built with Laravel 13, Vue 3, Inertia 3 and Tailwind 4.
 
 ## Running it locally
 
-You need PHP 8.3 or newer, Composer and Node.
+You need PHP 8.4 or newer, Composer and Node 22 or newer.
 
 ```bash
 composer setup
