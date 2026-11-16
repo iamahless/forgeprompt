@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\CreditPurchaseController;
 use App\Http\Controllers\GenerationController;
 use App\Http\Controllers\GenerationQuoteController;
@@ -15,6 +16,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('generations/quote', GenerationQuoteController::class)->name('generations.quote');
 
     Route::post('credits', [CreditPurchaseController::class, 'store'])->name('credits.store');
+
+    Route::get('admin/report', ReportController::class)
+        ->can('view-admin-report')
+        ->name('admin.report');
 });
 
 require __DIR__.'/settings.php';
