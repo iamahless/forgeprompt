@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreditPurchaseController;
 use App\Http\Controllers\GenerationController;
 use App\Http\Controllers\GenerationQuoteController;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->middleware('throttle:generations')
         ->name('generations.store');
     Route::post('generations/quote', GenerationQuoteController::class)->name('generations.quote');
+
+    Route::post('credits', [CreditPurchaseController::class, 'store'])->name('credits.store');
 });
 
 require __DIR__.'/settings.php';
